@@ -17,7 +17,8 @@ class MethodCallController extends Controller
     ){}
 
     /**
-     * Store a newly created resource in storage.
+     * @param StoreMethodCallRequest $request
+     * @return JsonResponse
      */
     public function store(StoreMethodCallRequest $request): JsonResponse
     {

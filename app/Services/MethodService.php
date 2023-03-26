@@ -11,21 +11,38 @@ use App\Filters\MethodCall\MethodCallDateFilter;
 
 class MethodService
 {
+    /**
+     * @return Collection
+     */
     public function index(): Collection
     {
         return Method::all();
     }
 
+    /**
+     * @param $validated
+     * @return Method
+     */
     public function store($validated): Method
     {
         return Method::create($validated);
     }
 
+    /**
+     * @param $validated
+     * @param $method
+     * @return void
+     */
     public function update($validated, &$method)
     {
         $method->update($validated);
     }
 
+    /**
+     * @param $id
+     * @return bool
+     * @throws MethodDeleteException
+     */
     public function destroy($id): bool
     {
         $method = Method::withTrashed()->find($id);
@@ -41,6 +58,10 @@ class MethodService
         }
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     #[ArrayShape([
         'seconds' => 0,
         'memory' => 0,

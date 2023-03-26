@@ -17,7 +17,8 @@ class MethodController extends Controller
     public function __construct(protected MethodService $methodService, protected ResponseService $responseService){}
 
     /**
-     * Display a listing of the resource.
+     * @param IndexMethodRequest $request
+     * @return JsonResponse
      */
     public function index(IndexMethodRequest $request): JsonResponse
     {
@@ -31,7 +32,8 @@ class MethodController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param StoreMethodRequest $request
+     * @return JsonResponse
      */
     public function store(StoreMethodRequest $request): JsonResponse
     {
@@ -44,7 +46,9 @@ class MethodController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param UpdateMethodRequest $request
+     * @param Method $method
+     * @return JsonResponse
      */
     public function update(UpdateMethodRequest $request, Method $method): JsonResponse
     {
@@ -57,7 +61,8 @@ class MethodController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @param Method $method
+     * @return JsonResponse
      */
     public function show(Method $method): JsonResponse
     {
@@ -67,7 +72,9 @@ class MethodController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param $id
+     * @return JsonResponse
+     * @throws \App\Exceptions\MethodDeleteException
      */
     public function destroy($id)
     {
@@ -77,7 +84,8 @@ class MethodController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * @param $method
+     * @return JsonResponse
      */
     public function getMethodStatistic($method): JsonResponse
     {
